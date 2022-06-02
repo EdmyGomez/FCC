@@ -1,0 +1,141 @@
+<!-- Cuando los elementos tienen una position, como fixed o relative, las propiedades de desplazamiento CSS right, left, top y bottom se pueden usar en las reglas de animación para crear movimiento.
+
+Como se muestra en el siguiente ejemplo, puedes empujar el elemento hacia abajo y luego hacia arriba estableciendo la propiedad top fotograma clave (keyframe) a 50% en 50px, pero estableciéndolo en 0px para el primer fotograma clave (0%) y el último a (100%).
+
+@keyframes rainbow {
+  0% {
+    background-color: blue;
+    top: 0px;
+  }
+  50% {
+    background-color: green;
+    top: 50px;
+  }
+  100% {
+    background-color: yellow;
+    top: 0px;
+  }
+} -->
+<style>
+    div {
+      height: 40px;
+      width: 70%;
+      background: black;
+      margin: 50px auto;
+      border-radius: 5px;
+      position: relative;
+    }
+  
+    #rect {
+      animation-name: rainbow;
+      animation-duration: 4s;
+    }
+  
+    @keyframes rainbow {
+      0% {
+        background-color: blue;
+        top: 0px;
+        left:0px
+  
+      }
+      50% {
+        background-color: green;
+        top: 50px;
+        left:25px;
+  
+      }
+      100% {
+        background-color: yellow;
+        top: 0px;
+        left:-25px;
+  
+      }
+    }
+  </style>
+  
+  <div id="rect"></div>
+
+
+
+
+
+
+
+  <style>
+
+    #ball {
+      width: 70px;
+      height: 70px;
+      margin: 50px auto;
+      position: fixed;
+      left: 20%;
+      border-radius: 50%;
+      background: linear-gradient(
+        35deg,
+        #ccffff,
+        #ffcccc
+      );
+      animation-name: fade;
+      animation-duration: 3s;
+    }
+  
+    @keyframes fade {
+      50% {
+        left: 60%;
+        opacity:0.1;
+  
+      }
+    }
+  
+  </style>
+  
+  <div id="ball"></div>
+
+
+
+
+
+
+
+
+
+  <!-- Animar los elementos continuamente utilizando un contador de animaciones infinitas
+En los desafíos anteriores, vimos cómo utilizar algunas de las propiedades de la animación y la regla @keyframes. Otra propiedad de animación es la animation-iteration-count la cual te permite controlar cuántas veces te gustaría hacer un bucle a través de la animación. Por ejemplo:
+
+animation-iteration-count: 3;
+En este caso, la animación se detendrá después de ejecutarse 3 veces, pero es posible hacer que la animación se ejecute continuamente estableciendo ese valor en infinite.
+
+Para mantener la bola rebotando a la derecha en un bucle continuo, cambia la propiedad animation-iteration-count a infinite. -->
+<style>
+
+  #balon {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes bounce{
+    0% {
+      top: 150px;
+    }
+    50% {
+      top: 300px;
+      width: 130px;
+      height: 70px;
+    }
+    100% {
+      top: 150px;
+    }
+  }
+</style>
+<div id="balon"></div>
